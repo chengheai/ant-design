@@ -2,8 +2,7 @@
 html, body, :global(#root) {
   height: 100%;
 }
-:global(.radio-wrapper){
-  display: flex;
-  flex-wrap: wrap;
+:global(.my-flex-item) button{
+  margin: 5px;
 }
 

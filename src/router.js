@@ -1,18 +1,14 @@
 import React from 'react';
-import { Router, Route, Switch } from 'dva/router';
-import IndexPage from './routes/IndexPage';
-import Test from './routes/Test/Test';
-import Radio from './routes/Radio/Radio';
-import Products from './routes/Products';
+import { Router, Route, Switch, Redirect } from 'dva/router';
+import IndexPage from './routes/IndexPage.jsx';
 
 function RouterConfig({ history }) {
+  // console.log(111111111,history)
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={IndexPage} />
-        <Route path="/test" exact component={Test} />
-        <Route path="/radio" exact component={Radio} />
-        <Route path="/products" exact component={Products} />
+        <Route path="/" exact render={() => <Redirect to='/index/button' />} />
+        <Route path="/index" component={IndexPage} />
       </Switch>
     </Router>
   );
