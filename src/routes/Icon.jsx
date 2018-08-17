@@ -10,8 +10,9 @@ class IconC extends React.Component {
     return (
       
       <div>
-        <Icon type="step-backward" />
-        <Icon type="github" />
+        <Icon style={{fontSize: 36 }} type="step-backward" />
+        <Icon style={{fontSize: 36 }} type="github" />
+        <Icon style={{fontSize: 36, color: '#08c'}} type="alipay" />
       </div>
     );
   }

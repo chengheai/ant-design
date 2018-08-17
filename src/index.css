@@ -5,4 +5,15 @@ html, body, :global(#root) {
 :global(.my-flex-item) button{
   margin: 5px;
 }
+:global(.my-flex-item) a{
+  margin: 5px;
+}
+:global(.my-flex-item) span{
+  margin-right: 5px;
+}
+:global(.flex-center-center){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
