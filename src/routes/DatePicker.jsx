@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import { DatePicker, Col, Row, message } from 'antd';
-const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
+const { MonthPicker, RangePicker } = DatePicker;
 
 function onChange(date, dateString) {
     message.info(`选择的时间是${dateString}`)

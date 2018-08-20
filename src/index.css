@@ -16,4 +16,35 @@ html, body, :global(#root) {
   justify-content: center;
   align-items: center;
 }
+/* #components-form-demo-normal-login .login-form {
+  max-width: 300px;
+}
+#components-form-demo-normal-login .login-form-forgot {
+  float: right;
+}
+#components-form-demo-normal-login .login-form-button {
+  width: 100%;
+} */
+:global(.trigger-new){
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
+}
 
+:global(.trigger-new):hover {
+  color: #1890ff;
+}
+:global(.logo-new) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  background: rgba(255,255,255,.2);
+  margin: 16px;
+}
+:global(.logo-01){
+  height: 32px;
+  margin-right: 16px;
+}

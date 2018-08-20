@@ -1,6 +1,6 @@
 
-import Button from './Button';
-import Icon from './Icon';
+import Button1 from './Button';
+import Icon1 from './Icon';
 import Grid from './Grid';
 import Affix from './Affix';
 import Alert from './Alert';
@@ -51,7 +51,7 @@ import Upload from './Upload';
 import React from 'react';
 import { connect } from 'dva';
 import { Link, Route } from 'dva/router';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Breadcrumb,Icon, Button } from 'antd';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
@@ -59,40 +59,63 @@ const { Header, Content, Sider, Footer } = Layout;
 
 
 class IndexPage extends React.Component {
+   // submenu keys of first level
+   rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6'];
+  state = {
+    openKeys: ['sub1'],
+    collapsed: false,
+  };
+  onOpenChange = (openKeys) => {
+    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+    if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      this.setState({ openKeys });
+    } else {
+      this.setState({
+        openKeys: latestOpenKey ? [latestOpenKey] : [],
+      });
+    }
+  }
+  toggleCollapsed = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  }
   render(){
     return (
       <div>
-        <Layout>
-          <Header className="header">
-            {/* <img className="logo" style={{objectFit:'cover',width:100,height:64}} src={'https://www.baidu.com/img/bd_logo1.png'} /> */}
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              style={{ lineHeight: '64px' }}
-            >
-              {/* <Menu.Item key="1">nav 1</Menu.Item>
-              <Menu.Item key="2">nav 2</Menu.Item>
-              <Menu.Item key="3">nav 3</Menu.Item> */}
-            </Menu>
-          </Header>
           <Layout>
-            <Sider width={280} style={{ background: '#fff' }}>
+            <Sider width={280} style={{ background: '#fff' }}
+              trigger={null}
+              collapsible
+              collapsed={this.state.collapsed}
+            >
+            {!this.state.collapsed?
+            <a className="logo-new" href="">
+              <img style={{height:32,marginRight:16}} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
+              <img style={{height: 16, position: 'relative',top: 1}} src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg" />
+            </a>:
+            <a className="logo-new" href="">
+              <img style={{height:32,marginRight:16}} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
+            </a>}
               <Menu
                 mode="inline"
+                theme="dark"
                 defaultSelectedKeys={['1']}
                 defaultOpenKeys={['sub1']}
+                openKeys={this.state.openKeys}
+                onOpenChange={this.onOpenChange}
+                inlineCollapsed={this.state.collapsed}
                 style={{ height: '100%', borderRight: 0 }}
               >
-                <SubMenu key="sub1" title={<span>General</span>}>
+                <SubMenu key="sub1" title={<span><Icon type="facebook" /><span>General</span></span>}>
                   <Menu.Item key="1"><Link to='/index/button'>Button 按钮</Link></Menu.Item>
                   <Menu.Item key="2"><Link to='/index/icon'>Icon 图标</Link></Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub2" title={<span>Layout</span>}>
+                <SubMenu key="sub2" title={<span><Icon type="taobao" /><span>Layout</span></span>}>
                   <Menu.Item key="5"><Link to='/index/grid'>Grid 栅格</Link></Menu.Item>
                   <Menu.Item key="6"><Link to='/index/layout'>Layout布局</Link></Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub3" title={<span>Navigation</span>}>
+                <SubMenu key="sub3" title={<span><Icon type="alipay-circle" /><span>Navigation</span></span>}>
                   <Menu.Item key="9"><Link to='/index/affix'>Affix 固钉</Link></Menu.Item>
                   <Menu.Item key="10"><Link to='/index/breadcrumb'>Breadcrumb 面包屑</Link></Menu.Item>
                   <Menu.Item key="11"><Link to='/index/dropdown'>Dropdown 下拉菜单</Link></Menu.Item>
@@ -100,7 +123,7 @@ class IndexPage extends React.Component {
                   <Menu.Item key="13"><Link to='/index/pagination'>Pagination 分页</Link></Menu.Item>
                   <Menu.Item key="14"><Link to='/index/steps'>Steps 步骤条</Link></Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub4" title={<span>Data Entry</span>}>
+                <SubMenu key="sub4" title={<span><Icon type="apple-o" /><span>Data Entry</span></span>}>
                   <Menu.Item key="15"><Link to='/index/autoComplete'>AutoComplete 自动完成</Link></Menu.Item>
                   <Menu.Item key="16"><Link to='/index/cascader'>Cascader 级联选择</Link></Menu.Item>
                   <Menu.Item key="17"><Link to='/index/checkbox'>Checkbox 多选框</Link></Menu.Item>
@@ -118,7 +141,7 @@ class IndexPage extends React.Component {
                   <Menu.Item key="29"><Link to='/index/transfer'>Transfer 穿梭框</Link></Menu.Item>
                   <Menu.Item key="30"><Link to='/index/upload'>Upload 上传</Link></Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub5" title={<span>Data Display</span>}>
+                <SubMenu key="sub5" title={<span><Icon type="shopping-cart" /><span>Data Display</span></span>}>
                   <Menu.Item key="31"><Link to='/index/avatar'>Avatar 头像</Link></Menu.Item>
                   <Menu.Item key="32"><Link to='/index/badge'>Badge 徽标数</Link></Menu.Item>
                   <Menu.Item key="33"><Link to='/index/calendar'>Calendar 日历</Link></Menu.Item>
@@ -134,7 +157,7 @@ class IndexPage extends React.Component {
                   <Menu.Item key="43"><Link to='/index/timeline'>Timeline 时间轴</Link></Menu.Item>
                   <Menu.Item key="44"><Link to='/index/tree'>Tree 树形控件</Link></Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub6" title={<span>Feedback</span>}>
+                <SubMenu key="sub6" title={<span><Icon type="notification" /><span>Feedback</span></span>}>
                   <Menu.Item key="45"><Link to='/index/alert'>Alert 警告提示</Link></Menu.Item>
                   <Menu.Item key="46"><Link to='/index/drawer'>Drawer 抽屉</Link></Menu.Item>
                   <Menu.Item key="47"><Link to='/index/modal'>Modal 对话框</Link></Menu.Item>
@@ -146,6 +169,14 @@ class IndexPage extends React.Component {
                 </SubMenu>
               </Menu>
             </Sider>
+            <Layout>
+              <Header style={{ background: '#fff', padding: 0 }}>
+                <Icon
+                  className="trigger-new"
+                  type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                  onClick={this.toggleCollapsed}
+                />
+              </Header>
             <Layout style={{ padding: '0 24px 24px' }}>
               <Breadcrumb style={{ margin: '16px 0' }}>
                 <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -153,8 +184,8 @@ class IndexPage extends React.Component {
                 <Breadcrumb.Item>App</Breadcrumb.Item>
               </Breadcrumb>
               <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 750 }}>
-                <Route path='/index/button' component={Button} />
-                <Route path='/index/icon' component={Icon} />
+                <Route path='/index/button' component={Button1} />
+                <Route path='/index/icon' component={Icon1} />
                 <Route path='/index/grid' component={Grid} />
                 <Route path='/index/layout' component={Layout1} />
                 <Route path='/index/spin' component={Spin} />
@@ -207,7 +238,7 @@ class IndexPage extends React.Component {
                 Ant Design ©2018 Created by Ant UED
               </Footer>
             </Layout>
-          </Layout>
+            </Layout>
         </Layout>
       </div>
       )   
