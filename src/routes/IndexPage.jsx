@@ -51,7 +51,7 @@ import Upload from './Upload';
 import React from 'react';
 import { connect } from 'dva';
 import { Link, Route } from 'dva/router';
-import { Layout, Menu, Breadcrumb,Icon, Button } from 'antd';
+import { Layout, Menu, Breadcrumb,Icon } from 'antd';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
@@ -60,7 +60,7 @@ const { Header, Content, Sider, Footer } = Layout;
 
 class IndexPage extends React.Component {
    // submenu keys of first level
-   rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6'];
+  rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6'];
   state = {
     openKeys: ['sub1'],
     collapsed: false,
@@ -99,7 +99,7 @@ class IndexPage extends React.Component {
             </a>}
               <Menu
                 mode="inline"
-                theme="dark"
+                // theme="dark"
                 defaultSelectedKeys={['1']}
                 defaultOpenKeys={['sub1']}
                 openKeys={this.state.openKeys}

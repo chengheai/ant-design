@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Row, Col } from 'antd';
-import '../common/grid.less';
 
 
 class GridC extends React.Component {

@@ -11,6 +11,12 @@ html, body, :global(#root) {
 :global(.my-flex-item) span{
   margin-right: 5px;
 }
+:global(.my-flex-item) div{
+  margin-right: 5px;
+}
+:global(.my-flex-item-new) input{
+  margin: 5px;
+}
 :global(.flex-center-center){
   display: flex;
   justify-content: center;
@@ -47,4 +53,8 @@ html, body, :global(#root) {
 :global(.logo-01){
   height: 32px;
   margin-right: 16px;
+}
+:global(.ant-switch-checked):after {
+  left: 100%;
+  margin-left: 0!important;
 }
