@@ -89,14 +89,14 @@ class IndexPage extends React.Component {
               collapsible
               collapsed={this.state.collapsed}
             >
-            {!this.state.collapsed?
+            {/* {!this.state.collapsed?
             <a className="logo-new" href="">
               <img style={{height:32,marginRight:16}} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
               <img style={{height: 16, position: 'relative',top: 1}} src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg" />
             </a>:
             <a className="logo-new" href="">
               <img style={{height:32,marginRight:16}} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
-            </a>}
+            </a>} */}
               <Menu
                 mode="inline"
                 // theme="dark"
